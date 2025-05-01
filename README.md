@@ -25,3 +25,8 @@ This repository provides a way to generate an Airflow Docker image with Alpine L
 The airflow-scheduler-autorestart, clean-logs, and entrypoint files are copied from https://github.com/apache/airflow without any changes.
 
 Tested with Airflow 2.10.5 + Alpine 3.21.3.
+
+
+```
+docker pull zhong2plus/airflow:2.10.5-alpine3.21.3
+```
