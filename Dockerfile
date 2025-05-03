@@ -21,8 +21,8 @@ RUN apk update && \
     python -m venv ${AIRFLOW_USER_HOME_DIR}/.local && \
     ${PIP} install psycopg2-binary && \
     ${PIP} install "apache-airflow[celery,async,postgres,redis]==2.10.5" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.10.5/constraints-3.12.txt" && \
+    ${PIP} install pendulum==3.1.0 && \
     apk del py3-pybind11-dev re2-dev gcc python3-dev musl-dev linux-headers g++ && \
-    rm -rf ${AIRFLOW_USER_HOME_DIR}/.local/lib/python3.12/site-packages/pendulum.libs && \
     rm -rf ${AIRFLOW_USER_HOME_DIR}/.cache /root/.cache  && \
     (mkdir -p /opt/airflow || true) && \
     chown -R airflow:0 ${AIRFLOW_USER_HOME_DIR} ${AIRFLOW_HOME} && \
