@@ -1,5 +1,5 @@
 # airflow-alpine
-Airflow Alpine Docker image for Apache Airflow 2.10.5
+Airflow Alpine Docker image for Apache Airflow
 
 # Why this project?
 The official Airflow image is based on Debian, a large image size (~1.5GB). 
