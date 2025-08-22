@@ -15,6 +15,7 @@ COPY ./airflow-scheduler-autorestart /airflow-scheduler-autorestart
 
 USER root
 RUN apk update && \
+    apk add dumb-init && \
     apk add bash curl && \
     apk add python3 py3-pybind11 py3-pybind11-dev re2-dev gcc python3-dev musl-dev linux-headers g++ tzdata re2 && \
     adduser -h ${AIRFLOW_USER_HOME_DIR} -s /bin/bash -G root -D -u ${AIRFLOW_UID} airflow && \
@@ -33,5 +34,5 @@ RUN apk update && \
 WORKDIR ${AIRFLOW_HOME}
 EXPOSE 8080
 USER ${AIRFLOW_UID}
-ENTRYPOINT ["/entrypoint"]
+ENTRYPOINT ["/usr/bin/dumb-init", "--", "/entrypoint"]
 CMD []
